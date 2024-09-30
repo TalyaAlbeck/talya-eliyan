@@ -70,4 +70,13 @@ button {
   height: 47px;
   font-size: 1em;
   border-radius: 10%;
+  transition: 2s;
+}
+
+.flip-card-inner .flip-card-front {
+  transition: 2s;
+}
+
+.hiden {
+  opacity: 0;
 }/*# sourceMappingURL=memory_game.css.map */
