@@ -10,11 +10,9 @@ const form = document.getElementById("myForm");
 
 function signup() {
     const firstname = document.getElementById("fname").value;
-    const lastname = document.getElementById("pass").value;
-    const password = document.getElementById("lname").value;
+    const password = document.getElementById("pass").value;
     const user = {
         "firstname": firstname,
-        "lastname": lastname,
         "password": password
 
     }

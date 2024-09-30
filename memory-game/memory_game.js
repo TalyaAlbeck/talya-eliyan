@@ -1,5 +1,7 @@
-const gameCards = document.getElementsByClassName("game-cards"); //the original cards order
+const htmlGameCards = document.getElementsByClassName("game-cards"); //the original cards order
 const gameBoard = document.getElementById("game-board"); //main
+
+let gameCards = Array.from(htmlGameCards)
 
 for (let i = 0; i < gameCards.length; i++) {
     gameCards[i].addEventListener("click", (event) => onCardclick(event))
@@ -37,6 +39,8 @@ function onCardclick({ target }) {
     const flipCardInner = target.parentElement.parentElement
     flipCardInner.classList.add("chosen");
     checkOnly2Cards();
+    // console.log(flipCardInner.classList);
+
 }
 
 //check the 2 cards
@@ -52,11 +56,7 @@ function checkOnly2Cards() {
         }, 2000);
         checkPair(cardsChosen)
     }
-    // imgGrandparent.classList.remove("chosen");
 }
-
-let k = gameCards.indexOf("bear")
-console.log(k);
 
 //check if the cards are the same
 function checkPair(innerCards) {
@@ -64,7 +64,19 @@ function checkPair(innerCards) {
     let card2Class = innerCards[1].children[1].className
     if (card1Class === card2Class) {
         console.log("Pair!")
-        // delete gameCards[]
-        console.log(gameCards)
+        innerCards[0].children[1].classList.add("hiden")
+        innerCards[1].children[1].classList.add("hiden")
+        console.log(innerCards[0].children[1].classList, innerCards[1].children[1].classList)
+
+        // setTimeout(deleteCards, 2000);
+
+        function deleteCards() {
+            innerCards[0].children[1].remove()
+            innerCards[0].children[0].remove()
+            innerCards[1].children[1].remove()
+            innerCards[1].children[0].remove()
+            console.log('gameCards: ', gameCards.length);
+        }
+        deleteCards()
     }
 }

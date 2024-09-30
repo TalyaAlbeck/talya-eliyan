@@ -2,21 +2,18 @@
 
 
 
-let arrUersname = [];
+// let arrUersname = [];
 
 const form = document.getElementById("myForm");
 // form.addEventListener("submit",userid)
 
 
 function signup() {
-    const firstname = document.getElementById("fname").value;
-    const lastname = document.getElementById("pass").value;
-    const password = document.getElementById("lname").value;
+    const firstname = document.getElementById("name").value;
+    const password = document.getElementById("pass").value;
     const user = {
         "firstname": firstname,
-        "lastname": lastname,
         "password": password
-
     }
 
     if (!localStorage.getItem("users")) {
