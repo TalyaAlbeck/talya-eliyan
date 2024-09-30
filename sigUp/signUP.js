@@ -1,0 +1,45 @@
+const firstname = document.getElementById("fname").value;
+// console.log('firstname: ', firstname);
+const lastname = document.getElementById("pass").value;
+// console.log('lastname: ', lastname);
+const password = document.getElementById("lname").value;
+// console.log('password: ', password);
+const user = {
+    firstname,
+    lastname,
+    password
+    
+}
+const arrayuser = [user];
+
+const form = document.getElementById(myForm);
+function userid() {
+
+}
+
+
+
+// const LSFake = [
+
+//     {
+//         firstname: "shir",
+//         lastname: "alima",
+//         password: "z10m"
+
+//     },
+
+//     {
+//         firstname: "eliyan",
+//         lastname: "mu",
+//         password: "1324"
+
+//     }
+// ]
+
+// const newUser = {
+//     firstname: "shir1",
+//     lastname: "alima1",
+//     password: "z"
+
+// }
+
