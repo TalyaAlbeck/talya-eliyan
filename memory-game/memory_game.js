@@ -34,11 +34,8 @@ function relocation() {
 let cardsChosen = [];
 
 function onCardclick({ target }) {
-    console.log('target: ', target);
-    const imgGrandparent = target.parentElement.parentElement
-    imgGrandparent.classList.add("chosen");
-    // cardsChosen.push(document.getElementsByClassName("chosen"))
-    // console.log(cardsChosen.length)
+    const flipCardInner = target.parentElement.parentElement
+    flipCardInner.classList.add("chosen");
     checkOnly2Cards();
 }
 
@@ -46,23 +43,28 @@ function onCardclick({ target }) {
 function checkOnly2Cards() {
     cardsChosen = document.getElementsByClassName("chosen")
     if (cardsChosen.length < 2) {
-        console.log('cardsChosen: ', cardsChosen);
-        console.log("hello");
+
 
     } else {
-        for (let i = 0; i < cardsChosen.length; i++) {
-            // setTimeout(2000, () => {
-            //     cardsChosen[i].classList.remove("chosen")
-            // })
-            cardsChosen = []
-        }
+        setTimeout(() => {
+            cardsChosen[0].classList.remove("chosen")
+            cardsChosen[0].classList.remove("chosen")
+        }, 2000);
+        checkPair(cardsChosen)
     }
     // imgGrandparent.classList.remove("chosen");
 }
 
-
+let k = gameCards.indexOf("bear")
+console.log(k);
 
 //check if the cards are the same
-function findPair() {
-
+function checkPair(innerCards) {
+    let card1Class = innerCards[0].children[1].className
+    let card2Class = innerCards[1].children[1].className
+    if (card1Class === card2Class) {
+        console.log("Pair!")
+        // delete gameCards[]
+        console.log(gameCards)
+    }
 }

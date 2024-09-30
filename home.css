@@ -10,4 +10,12 @@
 
 body{
     background-image: url("./picturer.png");
+    background-color: blueviolet;
+}
+input {
+    background-color: burlywood;
+}
+
+button {
+    background-color: darkblue;
 }
