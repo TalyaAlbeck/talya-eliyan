@@ -1,7 +1,13 @@
-const gameCards = document.getElementsByClassName("game-cards");
-const gameBoard = document.getElementById("game-board");
+const gameCards = document.getElementsByClassName("game-cards"); //the original cards order
+const gameBoard = document.getElementById("game-board"); //main
 
-let cardsPosition = [];
+for (let i = 0; i < gameCards.length; i++) {
+    gameCards[i].addEventListener("click", (event) => onCardclick(event))
+}
+
+
+// shufle the cards
+let cardsPosition = []; //the array that replace the original array
 
 function relocation() {
     let j = 0;
@@ -23,10 +29,40 @@ function relocation() {
     cardsPosition = []
 }
 
-//make the cards flip only when clickng on them
-// document.getElementsByClassName("game-cards").addEventListener("click", function);
+//flip the card and check there's only 2 flips cards
+
+let cardsChosen = [];
+
+function onCardclick({ target }) {
+    console.log('target: ', target);
+    const imgGrandparent = target.parentElement.parentElement
+    imgGrandparent.classList.add("chosen");
+    // cardsChosen.push(document.getElementsByClassName("chosen"))
+    // console.log(cardsChosen.length)
+    checkOnly2Cards();
+}
+
+//check the 2 cards
+function checkOnly2Cards() {
+    cardsChosen = document.getElementsByClassName("chosen")
+    if (cardsChosen.length < 2) {
+        console.log('cardsChosen: ', cardsChosen);
+        console.log("hello");
+
+    } else {
+        for (let i = 0; i < cardsChosen.length; i++) {
+            // setTimeout(2000, () => {
+            //     cardsChosen[i].classList.remove("chosen")
+            // })
+            cardsChosen = []
+        }
+    }
+    // imgGrandparent.classList.remove("chosen");
+}
+
+
 
 //check if the cards are the same
-function findCouple(card1, card2) {
+function findPair() {
 
 }

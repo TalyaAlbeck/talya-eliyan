@@ -1,3 +1,12 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+
 .game-cards {
   background-color: transparent;
   width: 300px;
@@ -13,8 +22,9 @@
   transition: transform 0.8s;
   transform-style: preserve-3d;
 }
-.flip-card-inner:hover {
-  transform: rotateY(180deg);
+
+.flip-card-front {
+  z-index: 2;
 }
 
 .flip-card-front, .flip-card-back {
@@ -26,14 +36,11 @@
 
 .flip-card-back {
   transform: rotateY(180deg);
+  display: flex;
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-  justify-content: center;
+.chosen {
+  transform: rotateY(180deg);
 }
 
 main {
@@ -49,4 +56,18 @@ main img {
      object-fit: cover;
   padding: 10px;
   border-radius: 5%;
+}
+
+h1 {
+  text-align: center;
+  justify-content: center;
+}
+
+button {
+  background-color: darkblue;
+  color: white;
+  width: 85px;
+  height: 47px;
+  font-size: 1em;
+  border-radius: 10%;
 }/*# sourceMappingURL=memory_game.css.map */
