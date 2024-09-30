@@ -1,45 +1,27 @@
 const firstname = document.getElementById("fname").value;
-// console.log('firstname: ', firstname);
 const lastname = document.getElementById("pass").value;
-// console.log('lastname: ', lastname);
 const password = document.getElementById("lname").value;
-// console.log('password: ', password);
 const user = {
-    firstname,
-    lastname,
-    password
+    "firstname":firstname,
+    "lastname":lastname,
+    "password":password
     
 }
-const arrayuser = [user];
 
-const form = document.getElementById(myForm);
+if(!localStorage["users"]){
+    localStorage.setItem("users",JSON.stringify([]));
+}
+
+console.log('user: ', user);
+let userArray=JSON.parse(localStorage["users"]);
+userArray.push(user);
+localStorage["users"]=JSON.stringify(userArray);
+
+let arrUersname=[];
+
+const form = document.getElementById("myForm");
+form.addEventListener("submit",userid)
 function userid() {
 
 }
-
-
-
-// const LSFake = [
-
-//     {
-//         firstname: "shir",
-//         lastname: "alima",
-//         password: "z10m"
-
-//     },
-
-//     {
-//         firstname: "eliyan",
-//         lastname: "mu",
-//         password: "1324"
-
-//     }
-// ]
-
-// const newUser = {
-//     firstname: "shir1",
-//     lastname: "alima1",
-//     password: "z"
-
-// }
 

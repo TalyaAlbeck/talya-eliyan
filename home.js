@@ -54,7 +54,7 @@ const arrayuser = [user];
 
 
 const form = document.getElementById("myForm");
-form.addEventListener
+form.addEventListener("submit",userid);
 function userid() {
 
 }
