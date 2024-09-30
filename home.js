@@ -1,7 +1,3 @@
-
-
-
-
 let arrUersname = [];
 
 const form = document.getElementById("myForm");
@@ -25,5 +21,5 @@ function signup() {
     userArray.push(user);
     localStorage.setItem("users", JSON.stringify(userArray));
 }
-let submit = document.getElementById("submit");
-submit.addEventListener("click", signup);
+let logIn = document.getElementById("submit");
+logIn.addEventListener("click", signup);

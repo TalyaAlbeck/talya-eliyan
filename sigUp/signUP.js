@@ -1,7 +1,4 @@
 
-
-
-
 // let arrUersname = [];
 
 const form = document.getElementById("myForm");
