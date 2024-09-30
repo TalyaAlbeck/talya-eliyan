@@ -9,21 +9,12 @@
 
 
 // {key, value}
-const firstname = document.getElementById("fname").value;
-const lastname = document.getElementById("pass").value;
+
 // console.log('lastname: ', lastname);
-const password = document.getElementById("lname").value;
+
 // console.log('password: ', password);
 
 
-const user = {
-    firstname,
-    lastname,
-    password
-    
-}
-
-console.log('user: ', user);
 
 // const LSFake = [
 
@@ -49,12 +40,26 @@ console.log('user: ', user);
 
 // }
 
+const firstname = document.getElementById("fname").value;
+const lastname = document.getElementById("pass").value;
+const password = document.getElementById("lname").value;
+const user = {
+    firstname,
+    lastname,
+    password
+    
+}
+
+console.log('user: ', user);
 
 const arrayuser = [user];
-
+const arrUersname=[];
 
 const form = document.getElementById("myForm");
-form.addEventListener("submit",userid);
+form.addEventListener("submit",userid)
 function userid() {
 
 }
+
+
+function
