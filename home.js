@@ -1,65 +1,31 @@
 
-// function validateForm() {
-//     let x = document.forms["myForm"]["fname"].value;
-//     if (x == "") {
-//       alert("Name must be filled out");
-//       return false;
-//     }
-//   }
-
-
-// {key, value}
-
-// console.log('lastname: ', lastname);
-
-// console.log('password: ', password);
 
 
 
-// const LSFake = [
-
-//     {
-//         firstname: "shir",
-//         lastname: "alima",
-//         password: "z10m"
-
-//     },
-
-//     {
-//         firstname: "eliyan",
-//         lastname: "mu",
-//         password: "1324"
-
-//     }
-// ]
-
-// const newUser = {
-//     firstname: "shir1",
-//     lastname: "alima1",
-//     password: "z"
-
-// }
-
-const firstname = document.getElementById("fname").value;
-const lastname = document.getElementById("pass").value;
-const password = document.getElementById("lname").value;
-const user = {
-    firstname,
-    lastname,
-    password
-    
-}
-
-console.log('user: ', user);
-
-const arrayuser = [user];
-const arrUersname=[];
+let arrUersname = [];
 
 const form = document.getElementById("myForm");
-form.addEventListener("submit",userid)
-function userid() {
+// form.addEventListener("submit",userid)
 
+
+function signup() {
+    const firstname = document.getElementById("fname").value;
+    const lastname = document.getElementById("pass").value;
+    const password = document.getElementById("lname").value;
+    const user = {
+        "firstname": firstname,
+        "lastname": lastname,
+        "password": password
+
+    }
+
+    if (!localStorage.getItem("users")) {
+        localStorage.setItem("users", JSON.stringify([]));
+    }
+    console.log('user: ', user);
+    let userArray = JSON.parse(localStorage.getItem("users"));
+    userArray.push(user);
+    localStorage.setItem("users", JSON.stringify(userArray));
 }
-
-
-function
+let submit = document.getElementById("submit");
+submit.addEventListener("click", signup);
