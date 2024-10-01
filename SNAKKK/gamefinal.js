@@ -143,6 +143,8 @@ let goalPosition = [];
 let position = [[14, 13], [15, 13], [16, 13]];
 let direction = "right";
 let isGameOver = false;
+let score=0;
+let scoreElement=document.getElementById("score");
 
 function partIdGenerator([x, y]) {
     return `part-${x}-${y}`;
@@ -206,6 +208,10 @@ function eat() {
     const newPosition = getNewPosition();
     position.push(newPosition);
     paint(newPosition);
+    score +=5;
+        console.log('score: ', score);
+        console.log('scoreElement: ', scoreElement);
+        scoreElement.innerHTML= "Score: " + score
 }
 
 function run() {
