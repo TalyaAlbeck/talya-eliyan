@@ -1,0 +1,31 @@
+body {
+    background-image: url(../picture/background\ game.png);
+    background-repeat: repeat;
+    background-size: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* height: 1000px; */
+}
+
+h1{
+    color: aliceblue;
+    margin-left: 5%;
+    margin-top: 100px;
+    
+}
+
+#picture{
+    display: flex;
+    height: 350px;
+    max-width: 350px;
+    gap: 10px;
+    margin-right: 40%;
+    margin-top: 20%;
+    
+}
+
+#snake{
+    width: 350px;
+}
+
