@@ -12,6 +12,7 @@
   width: 300px;
   height: 200px;
   border: 1px solid #f1f1f1;
+  transition: opacity 2s ease;
 }
 
 .flip-card-inner {
@@ -69,14 +70,23 @@ button {
   width: 85px;
   height: 47px;
   font-size: 1em;
-  border-radius: 10%;
-  transition: 2s;
+  border-radius: 10px;
+  position: relative;
+  right: 300px;
+  margin: 20px;
 }
 
-.flip-card-inner .flip-card-front {
-  transition: 2s;
+.button {
+  margin-left: 30%;
+  display: flex;
+  flex-direction: row;
 }
 
-.hiden {
+#score {
+  font-size: 2em;
+  margin-top: 30px;
+}
+
+.hidden {
   opacity: 0;
 }/*# sourceMappingURL=memory_game.css.map */

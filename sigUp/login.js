@@ -9,18 +9,18 @@ function logIn() {
     for (let i = 0; i < usersArray.length; i++) {
         if (firstname === usersArray[i].firstname && password === usersArray[i].password) {
             check = true;
-            alert("is true!")
+            break;
         }
         console.log(check);
     }
     if (check) {
+        alert("welcome " + firstname);
         // window.location.href = "../home.html";
-        alert("welcome " + firstname)
+
     }
     else {
-        alert("Error");
+        alert("name or password are incorrect");
     }
-    console.log(check);
 
 }
 
