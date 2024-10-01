@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body div {
+            background-color: rgb(236, 222, 201);
+        }
+
+        tr {
+            background-color: lightgray;
+            font-size: 2em;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 210px 210px 210px;
+            grid-template-rows: 210px 210px 210px;
+            justify-content: center;
+            width: auto;
+            padding-bottom: 20px;
+            padding-top: 10px;
+            margin-left: 10px;
+            padding-right: 5px;
+        }
+
+        .square {
+            background-color: blue;
+            position: relative;
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+        }
+
+        #a {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        #b {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        #c {
+            grid-column: 1;
+            grid-row: 3;
+        }
+
+        #d {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        #e {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        #f {
+            grid-column: 2;
+            grid-row: 3;
+        }
+
+        #g {
+            grid-column: 3;
+            grid-row: 1;
+        }
+
+        #h {
+            grid-column: 3;
+            grid-row: 2;
+        }
+
+        #h {
+            grid-column: 3;
+            grid-row: 3;
+        }
+
+        button {
+            margin: 10px;
+            height: 2em;
+            width: 5em;
+            font-size: large;
+        }
+    </style>
+</head>
+
+<body>
+    <h2 id="score">score: 0</h2>
+
+    <div class="container">
+        <div id="a" class="square"></div>
+        <div id="b" class="square"></div>
+        <div id="c" class="square"></div>
+        <div id="d" class="square"></div>
+        <div id="e" class="square"></div>
+        <div id="f" class="square"></div>
+        <div id="g" class="square"></div>
+        <div id="h" class="square"></div>
+        <div id="k" class="square"></div>
+    </div>
+
+    <button id="start">start</button>
+
+    <script src="red.js"></script>
+</body>
+
+</html>

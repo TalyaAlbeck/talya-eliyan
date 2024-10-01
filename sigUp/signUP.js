@@ -18,6 +18,9 @@ function signup() {
     let userArray = JSON.parse(localStorage.getItem("users"));
     userArray.push(user);
     localStorage.setItem("users", JSON.stringify(userArray));
+
+    window.location.href = "/sigUp/home page/home.html";
+    alert("welcome " + firstname);
 }
 let submit = document.getElementById("submit");
 submit.addEventListener("click", signup);

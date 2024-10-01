@@ -8,13 +8,16 @@ body {
     /* height: 1000px; */
 }
 
-h1{
+ h1{
     color: aliceblue;
     margin-left: 5%;
     margin-top: 100px;
+    position: absolute;
+    top: -30px;
+    left: 37%;
     
 }
-
+ /*
 #picture{
     display: flex;
     height: 350px;
@@ -23,9 +26,33 @@ h1{
     margin-right: 40%;
     margin-top: 20%;
     
-}
+} */
 
-#snake{
+/* .picture img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    padding: 10px;
+    border-radius: 5%;
+    /* transition: display 0.5s; */
+/* } */
+
+#picture {
+    position: absolute;
+    top: 110px;
+    left: 300px;
+    display: grid;
+    margin: 20px 30px 0 30px;
+    grid-template-columns: repeat(3, minmax(300px, 1fr))
+} 
+
+/* #picturein img { */
+img {
     width: 350px;
+    height: 250px;
+    object-fit: cover;
+    padding: 10px;
+    border-radius: 5%;
+    position: relative; 
+    left: 70px;
 }
-

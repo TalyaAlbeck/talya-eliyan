@@ -14,9 +14,8 @@ function logIn() {
         console.log(check);
     }
     if (check) {
+        window.location.href = "/sigUp/home page/home.html";
         alert("welcome " + firstname);
-        // window.location.href = "../home.html";
-
     }
     else {
         alert("name or password are incorrect");
