@@ -4,10 +4,11 @@ const VERTICAL_AREAS = 25;
 const DURATION = 500;
 let score = 0;
 let scoreElement = document.getElementById("score");
-
-
-const board = document.getElementById("board");
+let board = document.getElementById("board");
 let goalPosition = [];
+let position = [[14, 13], [15, 13], [16, 13]];
+let direction = "right";
+let isGameOver = false;
 
 function partIdGenerator([x, y]) {
     return `part-${x}-${y}`;
@@ -39,123 +40,85 @@ function placeGoal() {
     goalElement.style.top = `${y * 20}px`;
 }
 
-class Snake {
-    constructor() {
-        this.position = [[14, 13], [15, 13], [16, 13]];
-        this.direction = "right";
-        this.isGameOver = false;
+function run() {
+    if (isGameOver) return;
 
-        this.position.forEach(paint);
-        placeGoal(); // Place the initial goal
-    }
+    const newPosition = getNewPosition();
+    const [newX, newY] = newPosition;
+    const horizontalAccident = newX < 0 || newX >= HORIZONTAL_AREAS;
+    const verticalAccident = newY < 0 || newY >= VERTICAL_AREAS;
+    const isPositionDuplicated = position.some(([x, y]) => (newX === x && newY === y));
 
-    run() {
-        if (this.isGameOver) return;
-
-        const newPosition = this.getNewPosition();
-        const [newX, newY] = newPosition;
-        const horizontalAccident = newX < 0 || newX >= HORIZONTAL_AREAS;
-        const verticalAccident = newY < 0 || newY >= VERTICAL_AREAS;
-        const isPositionDuplicated = this.position.some(([x, y]) => (newX === x && newY === y));
-
-        // Check for game over
-        if (horizontalAccident || verticalAccident || isPositionDuplicated) {
-            this.isGameOver = true;
-            alert("Game Over");
+    // Check for game over
+    if (horizontalAccident || verticalAccident || isPositionDuplicated) {
+        isGameOver = true;
+        alert("Game Over");
+    } else {
+        // Check if the snake eats the goal
+        if (newX === goalPosition[0] && newY === goalPosition[1]) {
+            eat(); // Grow the snake
+            placeGoal(); // Place a new goal
         } else {
-            // Check if the snake eats the goal
-            if (newX === goalPosition[0] && newY === goalPosition[1]) {
-                this.eat(); // Grow the snake
-                placeGoal(); // Place a new goal
-            } else {
-                const removedChild = this.position[0];
-                remove(removedChild);
-                this.position = this.position.slice(1).concat([newPosition]);
-                paint(newPosition);
-            }
+            const removedChild = position[0];
+            remove(removedChild);
+            position = position.slice(1).concat([newPosition]);
+            paint(newPosition);
         }
-    }
-
-    getNewPosition() {
-        const [x, y] = this.position[this.position.length - 1];
-        let newPosition;
-
-        switch (this.direction) {
-            case "left":
-                newPosition = [x - 1, y];
-                break;
-            case "right":
-                newPosition = [x + 1, y];
-                break;
-            case "up":
-                newPosition = [x, y - 1];
-                break;
-            case "bottom":
-                newPosition = [x, y + 1];
-                break;
-            default:
-                throw new Error("Direction is invalid");
-        }
-        return newPosition;
-    }
-
-    changeDirection(newDirection) {
-        this.direction = newDirection;
-    }
-
-    eat() {
-        // Grow the snake by not removing the tail
-        const newPosition = this.getNewPosition();
-        this.position.push(newPosition);
-        paint(newPosition);
-        score += 5;
-        console.log('score: ', score);
-        console.log('scoreElement: ', scoreElement);
-        scoreElement.innerHTML = "Score: " + score
     }
 }
 
+function getNewPosition() {
+    const [x, y] = position[position.length - 1];
+    let newPosition;
 
-    // window.addEventListener("load", function () {
-    //     const snakeInstance = new Snake();
-    //     setInterval(function () {
-    //         snakeInstance.run();
-    //     }, DURATION);
+    switch (direction) {
+        case "left":
+            newPosition = [x - 1, y];
+            break;
+        case "right":
+            newPosition = [x + 1, y];
+            break;
+        case "up":
+            newPosition = [x, y - 1];
+            break;
+        case "down":
+            newPosition = [x, y + 1];
+            break;
+        default:
+            throw new Error("Direction is invalid");
+    }
+    return newPosition;
+}
 
-    //     function checkKey(e) {
-    //         e = e || window.event;
+function changeDirection(newDirection) {
+    direction = newDirection;
+}
 
-    //         if (e.keyCode === 38) {
-    //             snakeInstance.changeDirection("up");
-    //         } else if (e.keyCode === 40) {
-    //             snakeInstance.changeDirection("bottom");
-    //         } else if (e.keyCode === 37) {
-    //             snakeInstance.changeDirection("left");
-    //         } else if (e.keyCode === 39) {
-    //             snakeInstance.changeDirection("right");
-    //         }
-    //     }
+function eat() {
+    // Grow the snake by not removing the tail
+    const newPosition = getNewPosition();
+    position.push(newPosition);
+    paint(newPosition);
+    score += 5;
+    scoreElement.innerHTML = "Score: " + score;
+}
 
-    //     window.addEventListener("keydown", checkKey);
-    // });
-    window.addEventListener("load", function () {
-        const snakeInstance = new Snake();
-        setInterval(function () {
-            snakeInstance.run();
-        }, DURATION);
-    
-        window.addEventListener("keydown", function (e) {
-            e = e || window.event;
-    
-            if (e.keyCode === 38) {
-                snakeInstance.changeDirection("up");
-            } else if (e.keyCode === 40) {
-                snakeInstance.changeDirection("down");
-            } else if (e.keyCode === 37) {
-                snakeInstance.changeDirection("left");
-            } else if (e.keyCode === 39) {
-                snakeInstance.changeDirection("right");
-            }
-        });
+window.addEventListener("load", function () {
+    position.forEach(paint); // Paint initial snake
+    placeGoal(); // Place the initial goal
+    setInterval(run, DURATION);
+
+    window.addEventListener("keydown", function (e) {
+        e = e || window.event;
+
+        if (e.keyCode === 38) {
+            changeDirection("up");
+        } else if (e.keyCode === 40) {
+            changeDirection("down");
+        } else if (e.keyCode === 37) {
+            changeDirection("left");
+        } else if (e.keyCode === 39) {
+            changeDirection("right");
+        }
     });
-
+});
