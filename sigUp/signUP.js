@@ -1,8 +1,6 @@
 
-// let arrUersname = [];
 
 const form = document.getElementById("myForm");
-// form.addEventListener("submit",userid)
 
 
 function signup() {
