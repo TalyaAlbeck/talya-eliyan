@@ -7,7 +7,7 @@ function logIn() {
     console.log(usersArray);
     let check = false;
     for (let i = 0; i < usersArray.length; i++) {
-        if (firstname === usersArray[i].firstnamename && password === usersArray[i].password) {
+        if (firstname === usersArray[i].firstname && password === usersArray[i].password) {
             check = true;
             alert("is true!")
         }
@@ -15,7 +15,7 @@ function logIn() {
     }
     if (check) {
         // window.location.href = "../home.html";
-        alert("welcome" + firstname)
+        alert("welcome " + firstname)
     }
     else {
         alert("Error");

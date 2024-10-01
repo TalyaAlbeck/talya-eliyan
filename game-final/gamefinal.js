@@ -388,6 +388,8 @@ class Snake {
         const newPosition = this.getNewPosition();
         this.position.push(newPosition);
         paint(newPosition);
+        score +=5;
+        scoreElement.innerHTM= "Score: " + score
     }
 }
 
@@ -413,3 +415,7 @@ window.addEventListener("load", function() {
 
     window.addEventListener("keydown", checkKey);
 });
+
+
+let score=0;
+let scoreElement=document.getElementById("score");
