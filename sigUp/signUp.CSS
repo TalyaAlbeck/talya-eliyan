@@ -5,15 +5,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* height: 1000px; */
 }
 
-
-/* img{
-    display: flex;
-    z-index:-1;
-    height: 800px;
-} */
  #myForm {
     margin-right: 80%;
     margin-top: 15%;
