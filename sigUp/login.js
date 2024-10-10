@@ -1,5 +1,6 @@
 
-function logIn() {
+function logIn(e) {
+    e.preventDefault();
     let firstname = document.getElementById("name").value;
     let password = document.getElementById("pass").value;
 
@@ -14,7 +15,8 @@ function logIn() {
         console.log(check);
     }
     if (check) {
-        window.location.href = "/sigUp/home page/home.html";
+        window.location.href = "./home_page/home.html";
+        console.log("sadafwa")
         alert("welcome " + firstname);
     }
     else {

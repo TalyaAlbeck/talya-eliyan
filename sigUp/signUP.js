@@ -3,7 +3,8 @@
 const form = document.getElementById("myForm");
 
 
-function signup() {
+function signup(e) {
+    e.preventDefault();
     const firstname = document.getElementById("name").value;
     const password = document.getElementById("pass").value;
     const user = {
@@ -19,7 +20,7 @@ function signup() {
     userArray.push(user);
     localStorage.setItem("users", JSON.stringify(userArray));
 
-    window.location.href = "/sigUp/home page/home.html";
+    window.location.href = "./home_page/home.html";
     alert("welcome " + firstname);
 }
 let submit = document.getElementById("submit");
